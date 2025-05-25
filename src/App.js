@@ -191,9 +191,9 @@ const App = () => {
         <div className="container mx-auto text-center md:flex md:justify-between md:items-start">
           <div className="mb-6 md:mb-0 md:text-left">
             <p className="text-lg font-bold mb-2">Ubuntu Crafts</p>
-            <p className="text-sm text-amber-200">123 Artistry Lane, Nairobi, Kenya</p>
+            <p className="text-sm text-amber-200">123 Artists Lane, Kirinyaga, Kenya</p>
             <p className="text-sm text-amber-200">Email: info@ubuntucrafts.com</p>
-            <p className="text-sm text-amber-200">Phone: +254 712 345 678</p>
+            <p className="text-sm text-amber-200">Phone: +254 102 485 373</p>
           </div>
 
           <div className="mb-6 md:mb-0">
