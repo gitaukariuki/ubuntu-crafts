@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Main App component
 const App = () => {
+  // State to manage the visibility of the image gallery modal
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  // Function to open the image gallery modal
+  const openGallery = () => {
+    setIsGalleryOpen(true);
+  };
+
+  // Function to close the image gallery modal
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+  };
+
   // Sample product data for African carvings and sculptings
   const products = [
     {
@@ -10,7 +23,7 @@ const App = () => {
       description: 'A meticulously hand-carved wooden sculpture depicting a proud Maasai warrior in traditional attire. Intricate details highlight the craftsmanship.',
       price: 120.00,
       rating: 4.8,
-      imageUrl: '/ubuntu.png', // Placeholder image
+      imageUrl: '/ubuntu.png', // Image from public folder
     },
     {
       id: 2,
@@ -18,7 +31,7 @@ const App = () => {
       description: 'A contemporary abstract sculpture crafted from serpentine stone, inspired by traditional Shona art. Each piece is unique and tells its own story.',
       price: 250.00,
       rating: 4.9,
-      imageUrl: '/chair.jpg', // Placeholder image
+      imageUrl: '/chair.jpg', // Image from public folder
     },
     {
       id: 3,
@@ -26,7 +39,7 @@ const App = () => {
       description: 'A beautifully adorned traditional Zulu fertility doll, handcrafted with beads and fabric. A symbol of hope and new beginnings.',
       price: 85.00,
       rating: 4.7,
-      imageUrl: '/mask.jfif', // Placeholder image
+      imageUrl: '/mask.jfif', // Image from public folder
     },
     {
       id: 4,
@@ -34,7 +47,7 @@ const App = () => {
       description: 'An authentic replica of a Dogon ceremonial mask from Mali, carved from a single piece of wood and adorned with natural pigments. Perfect for cultural display.',
       price: 180.00,
       rating: 4.6,
-      imageUrl: '/furniture3.webp', // Placeholder image
+      imageUrl: '/furniture3.webp', // Image from public folder
     },
     {
       id: 5,
@@ -42,7 +55,7 @@ const App = () => {
       description: 'A striking reproduction of a classical Benin bronze head, showcasing the sophisticated artistry of the ancient Benin Kingdom. Made with high-quality bronze.',
       price: 350.00,
       rating: 5.0,
-      imageUrl: 'https://placehold.co/600x400/A52A2A/FFFFFF?text=Benin+Bronze', // Placeholder image
+      imageUrl: 'https://placehold.co/600x400/A52A2A/FFFFFF?text=Benin+Bronze', // Placeholder image (if no local image available)
     },
     {
       id: 6,
@@ -50,9 +63,25 @@ const App = () => {
       description: 'A hand-carved wooden Ashanti stool, traditionally used by the Akan people of Ghana. Represents beauty and fertility, often known as Akua\'ba.',
       price: 95.00,
       rating: 4.5,
-      imageUrl: 'https://placehold.co/600x400/8B0000/FFFFFF?text=Ashanti+Stool', // Placeholder image
+      imageUrl: 'https://placehold.co/600x400/8B0000/FFFFFF?text=Ashanti+Stool', // Placeholder image (if no local image available)
     },
   ];
+
+  // Function to get image filenames from the public/gallery folder
+  // IMPORTANT: You need to manually list your image filenames here.
+  // In a real large-scale application, you'd fetch this list from a backend API
+  // or use a build-time script to generate it.
+  const getGalleryImages = () => {
+    return [
+      '/gallery/artifacts1.jpg', // Replace with your actual image filenames from public/gallery
+      '/gallery/chair.jpg',
+      '/gallery/art.webp',
+      '/gallery/furniture6.jpg',
+      // Add more image paths here as you add images to public/gallery
+    ];
+  };
+
+  const galleryImages = getGalleryImages();
 
   return (
     <div className="font-sans antialiased text-gray-800 bg-gradient-to-br from-amber-50 to-orange-100 min-h-screen">
@@ -88,12 +117,9 @@ const App = () => {
       {/* Hero Section */}
       <section id="home" className="relative h-96 md:h-[500px] flex items-center justify-center text-center overflow-hidden rounded-b-3xl shadow-xl mx-4 md:mx-8 mt-6">
         <img
-          src="/ubuntu2.png" // Changed from https://placehold.co/...
+          src="/ubuntu3.png" // Using the provided hero image from public folder
           alt="African Carvings Background"
           className="absolute inset-0 w-full h-full object-cover filter brightness-75"
-          // You can remove the onError fallback if you're confident the image exists,
-          // or update it to point to a local fallback if /ubuntu.png fails.
-          // For now, keeping it can be safe:
           onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1200x600/6B4423/FFFFFF?text=African+Artistry+Fallback'; }}
         />
         <div className="relative z-10 p-6 bg-black bg-opacity-40 rounded-xl shadow-2xl max-w-2xl mx-auto">
@@ -103,11 +129,15 @@ const App = () => {
           <p className="text-lg md:text-xl text-amber-100 mb-8 drop-shadow-md">
             Handcrafted carvings and sculptures, imbued with rich cultural heritage and timeless beauty.
           </p>
-          <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+          <button
+            onClick={openGallery} // Added onClick handler to open the gallery
+            className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
+          >
             Explore Our Collection
           </button>
         </div>
       </section>
+
       {/* Product Gallery Section */}
       <section id="products" className="container mx-auto px-4 py-12 md:py-16">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center text-amber-900 mb-12 drop-shadow-sm">
@@ -191,9 +221,9 @@ const App = () => {
         <div className="container mx-auto text-center md:flex md:justify-between md:items-start">
           <div className="mb-6 md:mb-0 md:text-left">
             <p className="text-lg font-bold mb-2">Ubuntu Crafts</p>
-            <p className="text-sm text-amber-200">123 Artists Lane, Kirinyaga, Kenya</p>
+            <p className="text-sm text-amber-200">123 Artistry Lane, Nairobi, Kenya</p>
             <p className="text-sm text-amber-200">Email: info@ubuntucrafts.com</p>
-            <p className="text-sm text-amber-200">Phone: +254 102 485 373</p>
+            <p className="text-sm text-amber-200">Phone: +254 712 345 678</p>
           </div>
 
           <div className="mb-6 md:mb-0">
@@ -224,11 +254,41 @@ const App = () => {
         <div className="mt-8 pt-4 border-t border-amber-800 text-center">
           <p className="text-sm text-amber-200">
             &copy; {new Date().getFullYear()} Ubuntu Crafts. All rights reserved. Embracing African heritage through art.
-          <br>
-        Developed at <b><a href="#">gitslab</a><sup>&reg;</sup></b> |
-        </p>
+          </p>
         </div>
       </footer>
+
+      {/* Image Gallery Modal */}
+      {isGalleryOpen && (
+        <div className="fixed inset-0 w-full h-full bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+          <button
+            className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 cursor-pointer focus:outline-none"
+            onClick={closeGallery}
+            aria-label="Close Gallery"
+          >
+            &times;
+          </button>
+          <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-5xl w-full max-h-[90vh] overflow-y-auto relative">
+            <h2 className="text-3xl font-bold text-amber-900 mb-6 text-center">Our Collection Showcase</h2>
+            {galleryImages.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {galleryImages.map((image, index) => (
+                  <div key={index} className="rounded-lg overflow-hidden shadow-md group">
+                    <img
+                      src={image}
+                      alt={`Gallery Item ${index + 1}`}
+                      className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                      onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x300/D2691E/FFFFFF?text=Image+Not+Found'; }}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-center text-gray-600 text-lg">No gallery images found. Please add images to `public/gallery` and update the `getGalleryImages` function.</p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
