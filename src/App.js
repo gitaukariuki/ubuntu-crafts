@@ -224,8 +224,9 @@ const App = () => {
         <div className="mt-8 pt-4 border-t border-amber-800 text-center">
           <p className="text-sm text-amber-200">
             &copy; {new Date().getFullYear()} Ubuntu Crafts. All rights reserved. Embracing African heritage through art.
-          </p>
+          <br>
         Developed at <b><a href="#">gitslab</a><sup>&reg;</sup></b>
+        </p>
         </div>
       </footer>
     </div>
