@@ -225,7 +225,7 @@ const App = () => {
           <p className="text-sm text-amber-200">
             &copy; {new Date().getFullYear()} Ubuntu Crafts. All rights reserved. Embracing African heritage through art.
           <br>
-        Developed at <b><a href="#">gitslab</a><sup>&reg;</sup></b>
+        Developed at <b><a href="#">gitslab</a><sup>&reg;</sup></b> |
         </p>
         </div>
       </footer>
