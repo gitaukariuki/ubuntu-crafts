@@ -88,10 +88,13 @@ const App = () => {
       {/* Hero Section */}
       <section id="home" className="relative h-96 md:h-[500px] flex items-center justify-center text-center overflow-hidden rounded-b-3xl shadow-xl mx-4 md:mx-8 mt-6">
         <img
-          src="https://placehold.co/1200x600/6B4423/FFFFFF?text=African+Artistry" // Default image of carvings
+          src="/ubuntu.png" // Changed from https://placehold.co/...
           alt="African Carvings Background"
           className="absolute inset-0 w-full h-full object-cover filter brightness-75"
-          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1200x600/6B4423/FFFFFF?text=African+Artistry'; }} // Fallback image
+          // You can remove the onError fallback if you're confident the image exists,
+          // or update it to point to a local fallback if /ubuntu.png fails.
+          // For now, keeping it can be safe:
+          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1200x600/6B4423/FFFFFF?text=African+Artistry+Fallback'; }}
         />
         <div className="relative z-10 p-6 bg-black bg-opacity-40 rounded-xl shadow-2xl max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
@@ -105,7 +108,6 @@ const App = () => {
           </button>
         </div>
       </section>
-
       {/* Product Gallery Section */}
       <section id="products" className="container mx-auto px-4 py-12 md:py-16">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center text-amber-900 mb-12 drop-shadow-sm">
