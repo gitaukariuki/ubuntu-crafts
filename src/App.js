@@ -88,7 +88,7 @@ const App = () => {
       {/* Hero Section */}
       <section id="home" className="relative h-96 md:h-[500px] flex items-center justify-center text-center overflow-hidden rounded-b-3xl shadow-xl mx-4 md:mx-8 mt-6">
         <img
-          src="/ubuntu3.png" // Changed from https://placehold.co/...
+          src="/ubuntu2.png" // Changed from https://placehold.co/...
           alt="African Carvings Background"
           className="absolute inset-0 w-full h-full object-cover filter brightness-75"
           // You can remove the onError fallback if you're confident the image exists,
