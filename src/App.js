@@ -10,7 +10,7 @@ const App = () => {
       description: 'A meticulously hand-carved wooden sculpture depicting a proud Maasai warrior in traditional attire. Intricate details highlight the craftsmanship.',
       price: 120.00,
       rating: 4.8,
-      imageUrl: 'https://placehold.co/600x400/A0522D/FFFFFF?text=Maasai+Warrior', // Placeholder image
+      imageUrl: '/ubuntu.png', // Placeholder image
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const App = () => {
       description: 'A contemporary abstract sculpture crafted from serpentine stone, inspired by traditional Shona art. Each piece is unique and tells its own story.',
       price: 250.00,
       rating: 4.9,
-      imageUrl: 'https://placehold.co/600x400/8B4513/FFFFFF?text=Shona+Sculpture', // Placeholder image
+      imageUrl: '/chair.jpg', // Placeholder image
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const App = () => {
       description: 'A beautifully adorned traditional Zulu fertility doll, handcrafted with beads and fabric. A symbol of hope and new beginnings.',
       price: 85.00,
       rating: 4.7,
-      imageUrl: 'https://placehold.co/600x400/D2691E/FFFFFF?text=Zulu+Doll', // Placeholder image
+      imageUrl: '/mask.jfif', // Placeholder image
     },
     {
       id: 4,
@@ -34,7 +34,7 @@ const App = () => {
       description: 'An authentic replica of a Dogon ceremonial mask from Mali, carved from a single piece of wood and adorned with natural pigments. Perfect for cultural display.',
       price: 180.00,
       rating: 4.6,
-      imageUrl: 'https://placehold.co/600x400/CD853F/FFFFFF?text=Dogon+Mask', // Placeholder image
+      imageUrl: '/furniture3.webp', // Placeholder image
     },
     {
       id: 5,
