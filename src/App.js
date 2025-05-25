@@ -73,7 +73,7 @@ const App = () => {
   // or use a build-time script to generate it.
   const getGalleryImages = () => {
     return [
-      '/gallery/artifacts1.jpg', // Replace with your actual image filenames from public/gallery
+      '/gallery/artifacts.jpg', // Replace with your actual image filenames from public/gallery
       '/gallery/chair.jpg',
       '/gallery/art.webp',
       '/gallery/furniture6.jpg',
