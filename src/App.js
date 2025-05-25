@@ -117,7 +117,7 @@ const App = () => {
       {/* Hero Section */}
       <section id="home" className="relative h-96 md:h-[500px] flex items-center justify-center text-center overflow-hidden rounded-b-3xl shadow-xl mx-4 md:mx-8 mt-6">
         <img
-          src="/ubuntu3.png" // Using the provided hero image from public folder
+          src="/ubuntu2.png" // Using the provided hero image from public folder
           alt="African Carvings Background"
           className="absolute inset-0 w-full h-full object-cover filter brightness-75"
           onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/1200x600/6B4423/FFFFFF?text=African+Artistry+Fallback'; }}
